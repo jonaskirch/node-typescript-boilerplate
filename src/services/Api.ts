@@ -30,20 +30,20 @@ class Api {
       '/oauth/access-token',
       {
         grant_type: 'password',
-        username: process.env.GS1_USER,
-        password: process.env.GS1_PASS,
+        username: process.env.API_USER,
+        password: process.env.API_PASS,
       },
       {
         auth: {
-          username: process.env.GS1_CLIENT_ID || '',
-          password: process.env.GS1_CLIENT_SECRET || '',
+          username: process.env.API_CLIENT_ID || '',
+          password: process.env.API_CLIENT_SECRET || '',
         },
       },
     );
     const { access_token } = resp.data;
     this.api.defaults.headers.common.access_token = access_token;
     this.api.defaults.headers.common.client_id =
-      process.env.GS1_CLIENT_ID || '';
+      process.env.API_CLIENT_ID || '';
 
     */
   }
