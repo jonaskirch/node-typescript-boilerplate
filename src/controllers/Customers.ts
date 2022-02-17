@@ -18,8 +18,9 @@ class Customers {
   }
 
   public async index(req: Request, res: Response): Promise<Response> {
-    const customers = await Customer.find();
-    return res.json(customers);
+    const { limit = 50, page = 1 } = req.query;
+    const list = await CustomerService.list(Number(limit), Number(page));
+    return res.json(list);
   }
 
   public async store(req: Request, res: Response): Promise<Response> {
