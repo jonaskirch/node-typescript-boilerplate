@@ -4,9 +4,9 @@ export interface IPaginateList {
   items: any[];
   limit: number;
   page: number;
-  query_count: number;
+  queryCount: number;
   pages: number;
-  has_more: boolean;
+  hasMore: boolean;
   total: number;
 }
 
@@ -33,8 +33,8 @@ class PaginateService {
       limit,
       page,
       pages,
-      has_more: page < pages,
-      query_count: data.length,
+      hasMore: page < pages,
+      queryCount: data.length,
       total,
     };
 
